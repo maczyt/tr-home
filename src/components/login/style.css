@@ -1,0 +1,41 @@
+.login {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.login::before {
+    content: '';
+    background: url("./bg.jpg") 0/cover fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    position: absolute;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    margin: -30px;
+}
+.login .main {
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.25) border-box;
+    padding: 1em;
+    border-radius: .3em;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%);
+    overflow: hidden;
+}
+.login .main .form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login .main .form-item {
+    margin: 15px 5px;
+}

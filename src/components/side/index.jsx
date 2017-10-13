@@ -7,12 +7,20 @@ import FontIcon from 'material-ui/FontIcon';
 import {red500, deepPurple700, blue500} from 'material-ui/styles/colors';
 import { Link } from 'react-router-dom';
 import Subheader from 'material-ui/Subheader';
-
+import authStore from '../../store/Auth';
+import { action } from 'mobx';
+import { observer } from 'mobx-react';
+import { withRouter } from 'react-router-dom';
 const style = {
     overflowX: 'hidden',
 }
 
+@observer
 class Side extends React.Component {
+    @action logout() {
+        authStore.logout();
+        this.props.history.replace('/login');
+    }
     render() {
         return (
             <Drawer open={true}>
@@ -26,11 +34,11 @@ class Side extends React.Component {
                     <Subheader>Example</Subheader>
                     <Link to="/example/todo"><MenuItem primaryText="Todo" leftIcon={<FontIcon className="material-icons">view_list</FontIcon>} /></Link>
                     <Divider />
-                    <MenuItem primaryText="退出" leftIcon={<FontIcon className="material-icons">keyboard_return</FontIcon>} />
+                    <MenuItem onClick={this.logout.bind(this)} primaryText="退出" leftIcon={<FontIcon className="material-icons">keyboard_return</FontIcon>} />
                 </Menu>
             </Drawer>
         )
     }
 }
 
-export default Side;
+export default withRouter(Side);

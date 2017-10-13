@@ -65,6 +65,7 @@ export default class extends Component {
             boxSizing: 'border-box',
             boxShadow: 'rgba(0, 0, 0, 0.12) 1px 0px 4px, rgba(0, 0, 0, 0.12) 1px 0px 2px',
             wordBreak: 'break-all',
+            overflowY: 'auto',
         };
         const showStyle = {
             width: '50%',
@@ -87,8 +88,8 @@ export default class extends Component {
                     >
                         <FontIcon className="material-icons" color={grey500}>explore</FontIcon>
                     </IconButton>
-                    <textarea style={{...textStyle}} value={this.state.text} onChange={this.inputText.bind(this)}>
-                    </textarea>
+                    <div contentEditable="true" style={{...textStyle}} value={this.state.text} onChange={this.inputText.bind(this)}>
+                    </div>
                     <div style={{...showStyle, width: this.state.show ? '50%' : '0'}}>
                         <ReactMarkdown source={this.state.text}/>
                     </div>
